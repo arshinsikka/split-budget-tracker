@@ -5,4 +5,8 @@ data/events.json
 data/snapshot.json
 coverage/
 *.log
-.DS_Store
+.DS_Storenode_modules/
+coverage/
+dist/
+data/events.json
+data/snapshot.json
