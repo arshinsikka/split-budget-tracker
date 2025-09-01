@@ -6,7 +6,7 @@ const globals = require('globals');
 
 module.exports = [
   {
-    ignores: ['dist/**', 'node_modules/**', 'coverage/**', '.tmp/**']
+    ignores: ['dist/**', 'node_modules/**', 'coverage/**', '.tmp/**'],
   },
   js.configs.recommended,
   {
@@ -15,9 +15,9 @@ module.exports = [
       ecmaVersion: 2021,
       sourceType: 'commonjs',
       globals: {
-        ...globals.node
-      }
-    }
+        ...globals.node,
+      },
+    },
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
@@ -28,17 +28,17 @@ module.exports = [
       parserOptions: { project: false },
       globals: {
         ...globals.node,
-        ...globals.jest
-      }
+        ...globals.jest,
+      },
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
-      prettier
+      prettier,
     },
     rules: {
       'prettier/prettier': ['error', { endOfLine: 'auto' }],
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      'no-unused-vars': 'off'
-    }
-  }
+      'no-unused-vars': 'off',
+    },
+  },
 ];

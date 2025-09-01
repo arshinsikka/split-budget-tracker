@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
 import pino from 'pino';
 import pinoHttp from 'pino-http';
 import swaggerUi from 'swagger-ui-express';
@@ -11,7 +12,11 @@ const logger = pino({ level: process.env.LOG_LEVEL || 'info' });
 export const createApp = () => {
   const app = express();
 
+  // Security middleware
+  app.use(helmet());
   app.use(cors());
+
+  // Body parsing
   app.use(express.json());
   app.use(
     pinoHttp({
