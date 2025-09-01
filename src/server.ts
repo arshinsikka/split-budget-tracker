@@ -23,8 +23,8 @@ export const createApp = () => {
       logger,
       genReqId: (req) => (req.headers['x-request-id'] as string) || crypto.randomUUID(),
       customLogLevel: function (res, err) {
-        if (res.statusCode >= 400 && res.statusCode < 500) return 'warn';
-        if (res.statusCode >= 500 || err) return 'error';
+        if (res.statusCode && res.statusCode >= 400 && res.statusCode < 500) return 'warn';
+        if ((res.statusCode && res.statusCode >= 500) || err) return 'error';
         return 'info';
       },
     }),

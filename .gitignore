@@ -3,5 +3,6 @@ dist/
 .env
 data/events.json
 data/snapshot.json
-node_modules
-.gitignore
+coverage/
+*.log
+.DS_Store
